@@ -27,8 +27,13 @@ A real-time e-commerce analytics dashboard designed to process and visualize req
    ```
 
 4. **Generating Activity**
-   - Open Dashboard and create your account.
-   - Run the seeder to add some test data
+   - **Method A (GUI):** Open the Dashboard at `http://localhost:3002` and click "Create Account".
+   - **Method B (CLI):** Spawn new tenants pragmatically via the console utility:
+     ```bash
+     cd backend
+     npx ts-node scripts/create-store.ts --name="store_name" --password="password123"
+     ```
+   - **Live Seeder**: Blast the API with 1,000 parallel events attached to your newly created tenant:
      ```bash
      curl -X POST http://localhost:3001/api/v1/events/seed
      ```
