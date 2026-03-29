@@ -1,0 +1,45 @@
+# System Files
+.DS_Store
+*.swp
+*~
+
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Frontend (Next.js)
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.vercel/
+
+# Backend (NestJS / TypeScript)
+backend/dist/
+backend/build/
+*.tsbuildinfo
+
+# IDE / Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logging
+logs/
+*.log
+
+# Misc
+coverage/
+.nyc_output/

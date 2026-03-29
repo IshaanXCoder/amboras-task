@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Store {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Event {
+  event_id    String   @id @default(uuid())
+  store_id    String
+  event_type  String
+  timestamp   DateTime @default(now())
+  data        Json
+
+  @@index([store_id, timestamp])
+  @@index([store_id, event_type, timestamp])
+}
+
+model DailyStoreMetric {
+  id               String   @id @default(uuid())
+  store_id         String
+  date             DateTime @db.Date // YYYY-MM-DD
+  total_revenue    Float    @default(0.0)
+  total_events     Int      @default(0)
+  page_views       Int      @default(0)
+  purchases        Int      @default(0)
+  add_to_carts     Int      @default(0)
+  checkouts        Int      @default(0)
+
+  @@unique([store_id, date])
+  @@index([store_id, date])
+}
