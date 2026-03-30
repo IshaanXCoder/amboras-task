@@ -155,9 +155,16 @@ export default function Home() {
         <main className="flex-1 overflow-y-auto p-6 lg:p-10 z-0 scrollbar-thin scrollbar-thumb-neutral-800">
           <div className="max-w-7xl mx-auto space-y-8">
             <header className="flex flex-col gap-2">
-              <h1 className="text-3xl font-light tracking-tight text-white/90">
-                Welcome back, <span className="font-bold text-white">{storeName || storeId}</span>
-              </h1>
+              <div className="flex flex-col gap-1">
+                <h1 className="text-3xl font-light tracking-tight text-white/90">
+                  Welcome, <span className="font-bold text-white">{storeName}</span>
+                </h1>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono text-neutral-500 bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded">
+                    Store ID: {storeId}
+                  </span>
+                </div>
+              </div>
               <p className="text-neutral-400 text-sm">Here's what's happening in your store {dateRange.start ? 'over the last 7 days' : 'today'}.</p>
             </header>
 
